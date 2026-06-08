@@ -74,7 +74,7 @@
     const build = () => {
       const dur = video.duration && isFinite(video.duration) ? video.duration : 6;
       const endTime = Math.max(0, dur - 0.05);
-      const SCRUB_PORTION = 0.92; // footage advances across first 92% of the pin
+      const SCRUB_PORTION = 0.61; // footage advances across first 61% of the pin (50% faster scrub than 0.92), then holds
 
       // --- idle-seek controller: only issue the next seek once the prior one lands.
       // GSAP writing currentTime every frame piles up seeks faster than the decoder
