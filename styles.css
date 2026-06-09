@@ -306,6 +306,7 @@ p+p{margin-top:1.1em}
   padding:clamp(26px,3.4vw,42px) 0;border-bottom:1px solid var(--line-dark);
   position:relative;align-items:baseline;
 }
+@media(max-width:759px){.svc__row{grid-template-columns:1fr;gap:14px}.svc__row .no{padding-top:0}}
 @media(min-width:760px){.svc__row{grid-template-columns:64px minmax(0,16ch) 1fr}}
 .svc__row .no{font-family:var(--mono);font-size:13px;color:var(--amber-deep);padding-top:.5em}
 .svc__row h3{font-size:clamp(1.4rem,2.8vw,2.3rem);letter-spacing:-.025em;line-height:1.02;color:var(--ink)}
