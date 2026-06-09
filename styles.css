@@ -533,3 +533,8 @@ p+p{margin-top:1.1em}
   .sec{padding-block:clamp(70px,11vh,110px)}
   .why__item .txt{font-size:1.2rem}
 }
+
+/* landscape phone — prevent hero text clashing with nav */
+@media(max-height:500px) and (orientation:landscape){
+  .hero__content{padding-bottom:clamp(20px,5vh,50px)}
+}
