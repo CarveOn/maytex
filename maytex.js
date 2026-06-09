@@ -266,10 +266,16 @@
   function marquee() {
     const track = document.querySelector('.tagstrip__track');
     if (!track) return;
-    track.innerHTML += track.innerHTML; // duplicate for seamless loop
+    const unit = track.innerHTML;
+    const viewport = (track.parentElement || track).offsetWidth;
+    // Repeat the set until it comfortably exceeds the viewport, so the strip
+    // is never empty as it scrolls. Then duplicate the whole run for a seamless loop.
+    while (track.scrollWidth < viewport * 1.5) track.innerHTML += unit;
+    const loopWidth = track.scrollWidth;
+    track.innerHTML += track.innerHTML;
     if (REDUCED || !hasGSAP) return;
-    const half = track.scrollWidth / 2;
-    gsap.to(track, { x: -half, duration: 22, ease: 'none', repeat: -1 });
+    const speed = 55; // px per second — constant regardless of how many repeats
+    gsap.to(track, { x: -loopWidth, duration: loopWidth / speed, ease: 'none', repeat: -1 });
   }
 
   /* ---------- INIT ---------- */

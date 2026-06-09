@@ -311,7 +311,6 @@ p+p{margin-top:1.1em}
 .svc__row .no{font-family:var(--mono);font-size:13px;color:var(--amber-deep);padding-top:.5em}
 .svc__row h3{font-size:clamp(1.4rem,2.8vw,2.3rem);letter-spacing:-.025em;line-height:1.02;color:var(--ink)}
 .svc__row p{color:var(--ink-dim);font-size:clamp(1rem,1.15vw,1.12rem);line-height:1.5;max-width:46ch}
-.svc__row.lead h3{font-size:clamp(1.7rem,3.6vw,3rem)}
 .svc__row .tag{
   position:absolute;top:clamp(26px,3.4vw,42px);right:0;font-family:var(--mono);font-size:11px;
   letter-spacing:.12em;text-transform:uppercase;color:var(--amber-deep);
