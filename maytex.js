@@ -229,6 +229,23 @@
     });
   }
 
+  /* ---------- SECTION BREAK captions (scrub over the image) ---------- */
+  // Caption rises + fades in as the band enters, then drifts on up over the
+  // parallaxing image, tied to scroll. Captions carry no data-rise, so under
+  // reduced-motion / no-GSAP they simply stay visible (never hidden).
+  function breaks() {
+    if (REDUCED || !hasGSAP) return;
+    gsap.utils.toArray('.break').forEach(br => {
+      const cap = br.querySelector('.break__cap');
+      if (!cap) return;
+      const tl = gsap.timeline({
+        scrollTrigger: { trigger: br, start: 'top bottom', end: 'bottom top', scrub: 0.5 }
+      });
+      tl.fromTo(cap, { yPercent: 55, autoAlpha: 0 }, { yPercent: 8, autoAlpha: 1, ease: 'power2.out', duration: 0.45 })
+        .to(cap, { yPercent: -55, ease: 'none', duration: 0.55 });
+    });
+  }
+
   /* ---------- SECTION INDICATOR ---------- */
   function indicator() {
     const btns = Array.from(document.querySelectorAll('.indicator button'));
@@ -261,6 +278,7 @@
     reveal();
     counters();
     parallax();
+    breaks();
     indicator();
     marquee();
     if (hasGSAP) ScrollTrigger.refresh();
